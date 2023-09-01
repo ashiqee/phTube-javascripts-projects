@@ -1,57 +1,36 @@
-//get fetch data from api
+// Sort by view function
 
-const loadCategory = async () => {
+const loadSortData = async () => {
   const res = await fetch(
-    `https://openapi.programming-hero.com/api/videos/categories`
+    `https://openapi.programming-hero.com/api/videos/category/1000`
   );
   const data = await res.json();
-
-  const categoryContainer = document.getElementById("category-list");
-
-  const catData = data.data;
-
-  catData.forEach((category) => {
-    const div = document.createElement("div");
-
-    div.innerHTML = `
-    <a  onclick="loadVideo('${category.category_id}')" class="tab btn bg-slate-300 act" >${category.category}</a>
-    
-    `;
-    categoryContainer.appendChild(div);
-  });
-};
-
-// active btn
-const activeTab = document.querySelectorAll("act");
-
-activeTab.forEach((tabs) => {
-  tabs.addEventListener("click", (e) => {
-    tabs.classList.add("bg-red-400");
-  });
-});
-
-//Load Video in Display
-const loadVideo = async (id) => {
-  const res = await fetch(
-    `https://openapi.programming-hero.com/api/videos/category/${id}`
-  );
-  const data = await res.json();
-
   const videoData = data.data;
+
+  //   console.log(videoData.others.views);
+  let vData = [];
+  videoData.forEach((view) => {
+    vData.push(view);
+  });
+
+  const value = vData.sort((a, b) => {
+    const vOne = parseFloat(a.others.views);
+    const vTwo = parseFloat(b.others.views);
+    return vTwo - vOne;
+  });
 
   const displayContainer = document.getElementById("display-view");
 
   displayContainer.textContent = "";
 
   const noContent = document.getElementById("no-content");
-  if (videoData.length === 0) {
+  if (vData.length === 0) {
     noContent.classList.remove("hidden");
   } else {
     noContent.classList.add("hidden");
   }
-  //condition part
 
-  videoData.forEach((video) => {
+  vData.forEach((video) => {
     const view = video.others;
 
     video.authors.forEach((author) => {
@@ -101,37 +80,3 @@ const loadVideo = async (id) => {
     });
   });
 };
-
-//second to hours Convert function
-const convertSec = (sec) => {
-  const hours = Math.floor(sec / 3600);
-  const minutes = Math.floor((sec % 3600) / 60);
-  if (minutes > 0) {
-    return `
-    <p class=" text-sm  font-normal bg-gray-800 px-2 p-1 rounded-md text-white mt-[-40px] mx-5 my-5 text-center">
-    
-    ${hours}hrs ${minutes} min ago </p>`;
-  } else {
-    return ``;
-  }
-};
-
-//------------
-
-// verified user function
-const verifiedUser = (verified) => {
-  if (verified === true) {
-    return `      <img
-                      src="images/verified.png"
-                      alt=""
-                      class="w-6"
-                      srcset=""></img>
-                  `;
-  } else {
-    return ``;
-  }
-};
-//--------------
-
-loadCategory();
-loadVideo(1000);
