@@ -21,15 +21,6 @@ const loadCategory = async () => {
   });
 };
 
-// active btn
-const activeTab = document.querySelectorAll("act");
-
-activeTab.forEach((tabs) => {
-  tabs.addEventListener("click", (e) => {
-    tabs.classList.add("bg-red-400");
-  });
-});
-
 //Load Video in Display
 const loadVideo = async (id) => {
   const res = await fetch(
@@ -50,6 +41,15 @@ const loadVideo = async (id) => {
     noContent.classList.add("hidden");
   }
   //condition part
+
+  // active btn
+  const activeTab = document.querySelectorAll("act");
+
+  activeTab.forEach((tabs) => {
+    tabs.addEventListener("click", (e) => {
+      tabs.classList.add("bg-red-400");
+    });
+  });
 
   videoData.forEach((video) => {
     const view = video.others;
