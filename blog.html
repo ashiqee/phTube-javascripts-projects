@@ -61,8 +61,8 @@
         <div class="collapse-title text-xl font-medium">
           1. Discuss the scope of var, let, and const?
         </div>
-        <div class="collapse-content text-xl">
-          <p class="">
+        <div class="collapse-content text-justify text-xl">
+          <p class="bg-slate-200 p-5">
             <b> var:</b> var is global scope variable keyword.access every where
             inside function and all others scopes its redeclare able variable
             and updated any time. var uses for face many problem as duplicate
@@ -72,7 +72,20 @@
 
             <br />
             <br />
-            <b>let:</b>
+            <b>let:</b> let is a keyword that is used to declare a block scoped
+            variable.let variable can change value only block scope.its used for
+            changing data value store let variable.let can not be Redeclare.
+            only can value reassign. it use many time for js coding.
+            <br />Example syntax: let variableName= 10;
+
+            <br />
+            <br />
+            <b>const: </b> const is a keyword block scoped local variable. const
+            can not reassign and redeclare. const is an object,its properties
+            can be added,updated or removed.we use unique variable declare for
+            const keyword declaration it access only local scope.can't use other
+            scope access. <br />
+            Example syntax: const variableName = 10;
           </p>
         </div>
       </div>
@@ -81,19 +94,40 @@
         <div class="collapse-title text-xl font-medium">
           2. Tell us the use cases of null and undefined?
         </div>
-        <div class="collapse-content">
-          <p>hello</p>
+        <div class="collapse-content text-justify text-xl">
+          <p class="bg-slate-200 p-5">
+            Null means an empty value or a blank value.Null is an object in
+            javaScript and represents primitive data types.A null value in
+            JavaScript is used for referring absence of any object value and if
+            any function or variable returns null, then we can infer that the
+            object could not be created.
+            <br />
+            <br />
+            Undefined means the variable has been declared,but its value has not
+            been assigned. undefined() is an ECMAScript1 (ES1) feature. It is
+            the global object.
+          </p>
         </div>
       </div>
       <div class="collapse bg-base-200">
         <input type="radio" name="my-accordion-1" />
-        <div class="collapse-title text-xl font-medium">
+        <div class="collapse-title text-xl font-medium hover:text-blue-400">
           3. What do you mean by REST API?
         </div>
-        <div class="collapse-content">
-          <p>hello</p>
+        <div class="collapse-content text-justify text-xl">
+          <p class="bg-slate-200 p-5">
+            REST means Representational State Transfer. <br />
+            REST API is a way of easily accessing web services.When a RestFul
+            API is called, the server will transfer to the client a
+            representation of the state of the requested resource. Open the
+            request by passing a method and a URL, use a method CRUD operation.
+            REST was initially created as a guideline to manage communication on
+            a complex network like the internet.
+          </p>
         </div>
       </div>
     </main>
+
+    <footer class="mt-10"></footer>
   </body>
 </html>
